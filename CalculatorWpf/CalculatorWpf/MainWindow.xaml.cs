@@ -165,7 +165,12 @@ namespace CalculatorWpf
 
     private void LoadData()
     {
-      string jsonText = File.ReadAllText(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "data.json"));
+      string jsonPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "data.json");
+      if (!File.Exists(jsonPath))
+      {
+        return;
+      }
+      string jsonText = File.ReadAllText(jsonPath);
       DataJson data = JsonConvert.DeserializeObject<DataJson>(jsonText);
 
       TanBar.Text = data.TanBar;
