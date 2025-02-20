@@ -1,0 +1,60 @@
+﻿<Window x:Class="CalculatorWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorWpf"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="Scientific Calculator" Height="310" Width="566">
+    <Grid Margin="0,0,0,0">
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Name="ExecuteJavaScriptMenu" Header="Show browser" Click="ExecuteJavaScript" />
+                <Separator />
+                <MenuItem Name="ExitMenu" Header="_Exit" Click="ExitMenu_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <TextBox Name="TanBar" FontWeight="Bold" FontSize="16" Height="29" Background="#AACC99" HorizontalAlignment="Stretch" Margin="5,23,5,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+            <ComboBox Name="DisplayCombo" HorizontalAlignment="Left" Margin="229,84,0,0" VerticalAlignment="Top" Width="223"/>
+            <Label Content="Display:" HorizontalAlignment="Left" Margin="222,58,0,0" VerticalAlignment="Top"/>
+            <ComboBox Name="HistoryCombo" HorizontalAlignment="Left" Margin="229,127,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="ConstantCombo" HorizontalAlignment="Left" Margin="229,172,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="FunctionCombo" HorizontalAlignment="Left" Margin="229,218,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button Name="PadC"  Content="C" Background="#AA2222" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,68,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="PadC_Click"/>
+            <Button x:Name="LeftBracket"  Content="(" Background="#9AC693" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="48,68,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="LeftBracket_Click"/>
+            <Button x:Name="RightBracket"  Content=")" Background="#9AC693" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="91,68,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="RightBracket_Click"/>
+            <Button x:Name="Plus"  Content="+" Background="#AAAACC" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,68,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="Plus_Click"/>
+            <Button x:Name="N7"  Content="7" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,104,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N7_Click"/>
+            <Button x:Name="N8"  Content="8" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="48,104,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N8_Click"/>
+            <Button x:Name="N9"  Content="9" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="91,104,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N9_Click"/>
+            <Button x:Name="N4"  Content="4" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,141,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N4_Click"/>
+            <Button x:Name="N5"  Content="5" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="48,141,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N5_Click"/>
+            <Button x:Name="N6"  Content="6" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="91,141,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N6_Click"/>
+            <Button x:Name="N1"  Content="1" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,177,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N1_Click"/>
+            <Button x:Name="N2"  Content="2" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="48,177,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N2_Click"/>
+            <Button x:Name="N3"  Content="3" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="91,177,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N3_Click"/>
+            <Button x:Name="N0"  Content="0" Background="#CCAA99" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="48,212,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="N0_Click"/>
+            <Button x:Name="Minus"  Content="-" Background="#AAAACC" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,104,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="Minus_Click"/>
+            <Button x:Name="Times"  Content="*" Background="#AAAACC" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,141,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="Times_Click"/>
+            <Button x:Name="Divide"  Content="÷" Background="#AAAACC" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,177,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="Divide_Click"/>
+            <Button x:Name="EE"  Content="EE" Background="#9AC693" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,212,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="EE_Click"/>
+            <Button x:Name="DecimalPoint"  Content="." Background="#9AC693" Foreground="Black" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="91,213,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="DecimalPoint_Click"/>
+            <Button x:Name="Equals"  Content="=" Background="#444444" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,213,0,0" VerticalAlignment="Top" Height="31" Width="38" Click="Equals_Click"/>
+
+            <Button Name="Ampersand" Content="&amp;" Width="30" HorizontalAlignment="Left" Margin="177,70,0,0" VerticalAlignment="Top" Click="Ampersand_Click"/>
+            <Button x:Name="Pipe" Content="|" Width="30" HorizontalAlignment="Left" Margin="177,95,0,0" VerticalAlignment="Top" Click="Pipe_Click"/>
+            <Button x:Name="Power" Content="^" Width="30" HorizontalAlignment="Left" Margin="177,118,0,0" VerticalAlignment="Top" Click="Power_Click"/>
+            <Button x:Name="Not" Content="~" Width="30" HorizontalAlignment="Left" Margin="177,141,0,0" VerticalAlignment="Top" Click="Not_Click"/>
+            <Button x:Name="ShiftLeft" Content="&lt;&lt;" Width="30" HorizontalAlignment="Left" Margin="177,164,0,0" VerticalAlignment="Top" Click="ShiftLeft_Click"/>
+            <Button x:Name="ShiftRight" Content="&gt;&gt;" Width="30" HorizontalAlignment="Left" Margin="177,189,0,0" VerticalAlignment="Top" Click="ShiftRight_Click"/>
+            <Button x:Name="Percent" Content="%" Width="30" HorizontalAlignment="Left" Margin="177,212,0,0" VerticalAlignment="Top" Click="Percent_Click"/>
+            <Button x:Name="Comma" Content="," Width="30" HorizontalAlignment="Left" Margin="177,237,0,0" VerticalAlignment="Top" Click="Comma_Click"/>
+
+        </Grid>
+        <Grid Width="350" Margin="0,0,0,0" HorizontalAlignment="Right">
+            <wv2:WebView2 Name="webView" Source="https://www.example.com" Loaded="WebView_Loaded" Visibility="Collapsed"/>
+        </Grid>
+    </Grid>
+</Window>
