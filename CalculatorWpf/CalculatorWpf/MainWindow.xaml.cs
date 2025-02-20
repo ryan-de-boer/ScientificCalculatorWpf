@@ -482,6 +482,8 @@ function metresToFeet(x){return x/0.3048;}
       String result4 = await webView.ExecuteScriptAsync(fullScript);
       TanBar.Text = RemoveQuotes(result4);
 
+      TanBar.CaretIndex = TanBar.Text.Length;
+      TanBar.Focus();
 
       //works:
       //TanBar.Text = to_hex((int)Convert.ToDouble(result));
@@ -499,6 +501,13 @@ function metresToFeet(x){return x/0.3048;}
       if (e.Key == Key.Enter)
       {
         Apply();
+      }
+      else if (e.Key == Key.Escape)
+      {
+        //Clear
+        m_nextNButtonClears = false;
+        TanBar.Text = "";
+        TanBar.Focus();
       }
     }
 
@@ -737,6 +746,8 @@ function metresToFeet(x){return x/0.3048;}
     {
       m_nextNButtonClears = true;
       Apply();
+      TanBar.CaretIndex = TanBar.Text.Length;
+      TanBar.Focus();
     }
 
     private void Ampersand_Click(object sender, RoutedEventArgs e)
