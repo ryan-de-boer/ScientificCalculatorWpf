@@ -522,7 +522,7 @@ function metresToFeet(x){return x/0.3048;}
     private async void WebView_Loaded(object sender, RoutedEventArgs e)
     {
       await webView.EnsureCoreWebView2Async(); // Ensure WebView2 is initialized
-      webView.Source = new Uri("https://www.example.com"); // Load webpage
+      webView.Source = new Uri("https://www.google.com.au/"); // Load webpage
     }
 
     private async void ExecuteJavaScript(object sender, RoutedEventArgs e)

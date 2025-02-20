@@ -54,7 +54,7 @@
 
         </Grid>
         <Grid Width="350" Margin="0,0,0,0" HorizontalAlignment="Right">
-            <wv2:WebView2 Name="webView" Source="https://www.example.com" Loaded="WebView_Loaded" Visibility="Collapsed"/>
+            <wv2:WebView2 Name="webView" Source="https://www.google.com.au/" Loaded="WebView_Loaded" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>
