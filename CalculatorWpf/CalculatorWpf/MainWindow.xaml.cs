@@ -405,6 +405,11 @@ var SQRT2=Math.SQRT2;
       String input = TanBar.Text;
 
       String result = await webView.ExecuteScriptAsync("eval(" + input + ")");
+      if (result == "null")
+      {
+        MessageBox.Show("Invalid input: " + input, "Error");
+        return;
+      }
       TanBar.Text = result;
       TanBar.CaretIndex = TanBar.Text.Length;
 
