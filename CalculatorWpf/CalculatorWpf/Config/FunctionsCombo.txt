@@ -1,0 +1,26 @@
+Math Functions:|Math Functions:
+abs|abs(
+acos|acos(
+asin|asin(
+atan|atan(
+atan2|atan2(
+ceil|ceil(
+cos|cos(
+exp|exp(
+floor|floor(
+log|log(
+log10|log10(
+max|max(
+min|min(
+pow|pow(
+random|random(
+round|round(
+sin|sin(
+sqrt|sqrt(
+tan|tan(
+kmToMiles|kmToMiles(
+milesToKm|milesToKm(
+footPoundsToNm|footPoundsToNm(
+nmToFootPounds|nmToFootPounds(
+feetToMetres|feetToMetres(
+metresToFeet|metresToFeet(

@@ -82,6 +82,7 @@ namespace CalculatorWpf
       ConstantCombo.SelectedIndex = 0;
       ConstantCombo.SelectionChanged += ConstantCombo_SelectionChanged;
 
+      /*
       FunctionCombo.Items.Add(new ComboBoxItem { Label = "Math Functions:", Value = "Math Functions:" });
       FunctionCombo.Items.Add(new ComboBoxItem { Label = "abs", Value = "abs(" });
       FunctionCombo.Items.Add(new ComboBoxItem { Label = "acos", Value = "acos(" });
@@ -110,7 +111,8 @@ namespace CalculatorWpf
       FunctionCombo.Items.Add(new ComboBoxItem { Label = "metresToFeet", Value = "metresToFeet(" });
       FunctionCombo.SelectedIndex = 0;
       FunctionCombo.SelectionChanged += FunctionCombo_SelectionChanged;
-
+      */
+      ReadFunctionCombo();
 
       HistoryCombo.SelectionChanged += HistoryCombo_SelectionChanged;
 
@@ -120,6 +122,35 @@ namespace CalculatorWpf
       LoadData();
 
       this.Closing += MainWindow_Closing;
+    }
+
+    private string ReadFunctions()
+    {
+      string functionsPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Functions.txt");
+      if (!File.Exists(functionsPath))
+      {
+        return "";
+      }
+      string functionsText = File.ReadAllText(functionsPath);
+      return functionsText;
+    }
+
+    private void ReadFunctionCombo()
+    {
+      string functionsComboPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "FunctionsCombo.txt");
+      if (!File.Exists(functionsComboPath))
+      {
+        return;
+      }
+
+      string[] lines = File.ReadAllLines(functionsComboPath);
+      foreach (string line in lines)
+      {
+        string[] tokens = line.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+        FunctionCombo.Items.Add(new ComboBoxItem { Label = tokens[0], Value = tokens[1] });
+      }
+      FunctionCombo.SelectedIndex = 0;
+      FunctionCombo.SelectionChanged += FunctionCombo_SelectionChanged;
     }
 
     private void MainWindow_Activated(object? sender, EventArgs e)
@@ -338,32 +369,9 @@ var LOG2E=Math.LOG2E;
 var PI=Math.PI;
 var SQRT1_2=Math.SQRT1_2;
 var SQRT2=Math.SQRT2;
-function abs(x){return Math.abs(x);}
-function acos(x){return Math.acos(x);}
-function asin(x){return Math.asin(x);}
-function atan(x){return Math.atan(x);}
-function atan2(x,y){return Math.atan2(x,y);}
-function ceil(x){return Math.ceil(x);}
-function cos(x){return Math.cos(x);}
-function exp(x){return Math.exp(x);}
-function floor(x){return Math.floor(x);}
-function log(x){return Math.log(x);}
-function max(x,y){return Math.max(x,y);}
-function min(x,y){return Math.min(x,y);}
-function pow(x,y){return Math.pow(x,y);}
-function random(){return Math.random();}
-function round(x){return Math.round(x);}
-function sin(x){return Math.sin(x);}
-function sqrt(x){return Math.sqrt(x);}
-function tan(x){return Math.tan(x);}
-function log10(x){return Math.log(x)/Math.LN10;}
-function kmToMiles(x){return x/1.609344;}
-function milesToKm(x){return x*1.609344;}
-function footPoundsToNm(x){return x*1.3558;}
-function nmToFootPounds(x){return x/1.3558;}
-function feetToMetres(x){return x*0.3048;}
-function metresToFeet(x){return x/0.3048;}
+//Functions.txt
 ";
+        fns += ReadFunctions();
         Execute(fns);
       }
     }
