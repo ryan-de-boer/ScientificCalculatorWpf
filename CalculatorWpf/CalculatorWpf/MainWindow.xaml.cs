@@ -114,9 +114,18 @@ namespace CalculatorWpf
 
       HistoryCombo.SelectionChanged += HistoryCombo_SelectionChanged;
 
+
+      this.Activated += MainWindow_Activated;
+
       LoadData();
 
       this.Closing += MainWindow_Closing;
+    }
+
+    private void MainWindow_Activated(object? sender, EventArgs e)
+    {
+      TanBar.CaretIndex = TanBar.Text.Length;
+      TanBar.Focus();
     }
 
     private void FunctionCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
