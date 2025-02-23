@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CalculatorWpf
+﻿namespace CalculatorWpf
 {
+  /// <summary>
+  /// Class object to store in cobo box, label value pairs.
+  /// </summary>
   public class ComboBoxItem
   {
-    public string Label { get; set; }  // The text shown in ComboBox
-    public object Value { get; set; }  // The actual value (can be any type)
+    /// <summary>
+    /// The text shown in ComboBox.
+    /// </summary>
+    public string Label { get; set; }
 
-    public override string ToString() => Label; // Ensures Label is displayed
+    /// <summary>
+    /// The actual value (can be any type), but usually a string.
+    /// </summary>
+    public object Value { get; set; }
+
+    /// <summary>
+    /// Ensures Label is displayed.
+    /// </summary>
+    /// <returns>Label.</returns>
+    public override string ToString() => Label;
   }
 }

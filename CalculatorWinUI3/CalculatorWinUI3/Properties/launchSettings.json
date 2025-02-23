@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CalculatorWinUI3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CalculatorWinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
